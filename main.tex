@@ -1,0 +1,90 @@
+\documentclass[xcolor=table]{beamer}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[alf]{abntex2cite}
+\usepackage{udesc}
+\usepackage{amsfonts,amsmath,amssymb,mathtools}
+\usepackage{verbatim}
+\usepackage{listings}
+\usepackage[ddmmyyyy]{datetime}
+\usepackage{hyperref, url}
+\usepackage{graphicx}
+\usepackage{bussproofs}
+\usepackage{multirow}
+\usepackage{changepage}
+
+\newcommand{\uglyphi}{\phi} % mantendo o \phi velho
+\renewcommand \phi{\varphi}
+\let \emptyset \varnothing
+
+\graphicspath{{Figuras/}}
+\setbeamertemplate{frametitle continuation}{}
+
+% suprimindo warnings do hyperref
+\pdfstringdefDisableCommands{%
+  \def\\{}%
+  \def\texttt#1{<#1>}%
+  \def\smallskip{}%
+  \def\medskip{}%
+}
+
+\renewcommand{\figurename}{Figura}
+\sloppy
+\title[]{Formalização e Prova de algoritmos de menor caminho usando Coq}
+
+\author[João Vitor Fröhlich]{
+    João Vitor Fröhlich\\\smallskip
+    {\scriptsize Universidade do Estado de Santa Catarina \\\smallskip
+    \vspace{-2mm}
+    \texttt{joaovitorfrohlich@gmail.com}\\\medskip
+    {Orientadora: Dra Karina Girardi Roggia}\\
+    }
+}
+
+\date{\today}
+
+\begin{document}
+
+    \begin{frame}
+        \titlepage
+    \end{frame}
+
+    \begin{frame}[allowframebreaks]{Sumário}
+        \tableofcontents
+    \end{frame}
+
+    \section[]{Introdução}
+    \include{Slides/Introducao/Introducao1}
+    \include{Slides/Introducao/Introducao2}
+    \include{Slides/Introducao/Introducao3}
+
+    \section[]{Objetivos}
+    \include{Slides/Objetivos/ObjetivoGeral}
+    \include{Slides/Objetivos/ObjetivosEspecificos}
+
+    % \section[]{Trabalhos Relacionados}
+    % \include{Slides/TrabalhosRelacionados/TrabalhosRelacionados}
+
+    \section[]{Teoria de Grafos}
+    \include{Slides/TeoriaGrafos/Definicoes}
+
+    \section[]{Algoritmos}
+    \include{Slides/Algoritmos/DfsBfs}
+
+    \section[]{Coq}
+    \include{Slides/Coq/Coq}
+
+    \section[]{Implementação}
+    \include{Slides/Implementacao/Implementacao}
+
+    \section[]{Conclusões Parciais}
+    \include{Slides/Conclusoes/ConclusoesParciais}
+    \include{Slides/Conclusoes/Cronograma1}
+    \include{Slides/Conclusoes/Cronograma2}
+
+    \section[]{Referências}
+    \begin{frame}[allowframebreaks]{Referências}
+        \bibliography{referencias}
+    \end{frame}
+
+\end{document}
