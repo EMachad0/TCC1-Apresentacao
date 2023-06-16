@@ -12,6 +12,9 @@
 \usepackage{bussproofs}
 \usepackage{multirow}
 \usepackage{changepage}
+\usepackage{svg}
+\setsvg{inkscapeexe=inkscape}
+\setsvg{inkscapeopt=-z -D}
 
 \newcommand{\uglyphi}{\phi} % mantendo o \phi velho
 \renewcommand \phi{\varphi}
@@ -33,8 +36,8 @@
 \sloppy
 \title[]{Formalização e Prova de algoritmos de menor caminho usando Coq}
 
-\author[João Vitor Fröhlich]{
-    João Vitor Fröhlich\\\smallskip
+\author[João Vitor Fr\"ohlich]{
+    João Vitor Fr\"ohlich\\\smallskip
     {\scriptsize Universidade do Estado de Santa Catarina \\\smallskip
     \vspace{-2mm}
     \texttt{joaovitorfrohlich@gmail.com}\\\medskip
@@ -43,6 +46,8 @@
 }
 
 \date{\today}
+
+\titlegraphic{\includegraphics[scale=.15]{Logo-Função.png}}
 
 \begin{document}
 
@@ -67,7 +72,11 @@
     % \include{Slides/TrabalhosRelacionados/TrabalhosRelacionados}
 
     \section[]{Teoria de Grafos}
-    \include{Slides/TeoriaGrafos/Definicoes}
+    \include{Slides/TeoriaGrafos/Definicoes1}
+    \include{Slides/TeoriaGrafos/Exemplo1}
+    \include{Slides/TeoriaGrafos/Imagem1}
+    \include{Slides/TeoriaGrafos/Definicoes2}
+    \include{Slides/TeoriaGrafos/Imagem2}
     \include{Slides/TeoriaGrafos/Caminhos}
 
     \section[]{Algoritmos}

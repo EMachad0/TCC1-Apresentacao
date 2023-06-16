@@ -1,5 +1,16 @@
-\begin{frame}{Definições - Caminhos}
+\begin{frame}{Definições - Caminhos Finitos}
     \begin{itemize}
-        \item Diversos tipos de lógicas modais - interpretações diferentes para modalidades;
+        \item Uma lista não vazia de arestas: $C = [e_1,e_2, ..., e_n]$;
+        \begin{itemize}
+            \item[--] $\forall i \in \{1, n-1\}$, $\delta_1(e_i) = \delta_0(e_{i+1})$
+        \end{itemize}
+        \item As funções $\delta_0$, $\delta_1$ e $\phi$ (em grafos ponderados) podem ser definidas para cada caminho finito $C$ no grafo, onde
+        \begin{itemize}
+            \item[--] $\delta_0(C) = \delta_0(e_1)$
+            \item[--] $\delta_1(C) = \delta_1(e_n)$
+            \item[--] $\phi(C) = \sum_{i=1}^{|C|} \phi(e_i)$
+        \end{itemize}
+        \item Ciclos: $\delta_0(C) = \delta_1(C)$
+        \item Menor caminho de $u$ para $v$: $C'$ tal que $\forall\,C\,(\delta_0(C) = u \land \delta_1(C) = v), \phi(C') = min(\phi(C))$
     \end{itemize}
 \end{frame}

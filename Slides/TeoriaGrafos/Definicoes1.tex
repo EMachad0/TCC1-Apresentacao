@@ -1,0 +1,12 @@
+\begin{frame}{Definições - Grafo direcionado}
+    \begin{itemize}
+        \item $G = \langle V,E,\delta_0, \delta_1 \rangle$;
+        \begin{itemize}
+            \item[--] Restrição de laço: $\forall e \in E, \delta_0(e) \neq \delta_1(e)$
+            \item[--] Restrição de aresta paralela: $\forall e_1, e_2 \in E, \delta_0(e_1) = \delta_0(e_2) \land \delta_1(e_1) = \delta_1(e_2) \implies e_1 = e_2$
+        \end{itemize}
+        \item[]
+        \item Vizinhança: $\exists e \in E, (\delta_0(e) = u \land \delta_1(e) = v) \lor (\delta_0(e) = v \land \delta_1(e) = u)$
+        \item Diretamente alcançável: $\delta_0(e) = u \land \delta_1(e) = v$
+    \end{itemize}
+\end{frame}
