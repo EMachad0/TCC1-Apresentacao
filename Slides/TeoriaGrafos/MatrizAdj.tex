@@ -1,0 +1,31 @@
+\begin{frame}{Representação - Matriz de Adjacência}
+    \begin{itemize}
+        \item Matriz n$\times$n, onde n é o número de vértices do grafo
+        \item O valor de cada célula $M_{i,j}$ é calculado como
+        \begin{equation}
+            M_{i,j} = \left\{ \begin{array}{ll}
+                \phi(e) & \forall e \ |\ \delta_0(e) = i \land \delta_1(e) = j\\
+                0 & \text{se } i = j \\
+                -1 & \text{caso contrário}
+            \end{array} \right.
+        \end{equation}
+        \begin{table}[htbp]
+            \centering
+            \begin{tabular}{|c|c|c|c|c|}
+                \hline
+                &   $v_1$   &   $v_2$   &   $v_3$   &   $v_4$\\
+                \hline
+                $v_1$ & $0$ & $2.5$ & $1.0$ & $5.0$ \\
+                \hline
+                $v_2$ & $-1$ & $0$ & $5.0$ & $-1$ \\
+                \hline
+                $v_3$ & $-1$ & $0.5$ & $0$ & $-1$ \\
+                \hline
+                $v_4$ & $-1$ & $-1$ & $-1$ & $0$ \\
+                \hline
+            \end{tabular}
+            \caption[Matriz de adjacência]{Matriz de adjacência}
+            \label{tab:MatrizAdj}
+        \end{table}
+    \end{itemize}
+\end{frame}

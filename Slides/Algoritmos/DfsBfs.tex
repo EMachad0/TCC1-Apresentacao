@@ -1,15 +1,21 @@
 \begin{frame}{Algoritmos - DFS e BFS}
-    Extensão do conceito de lógica modais com apenas uma (ou um par de) modalidade(s) que contém diversas modalidades.
-    A linguagem de uma lógica multimodal é o menor conjunto \(LM_n\) que respeita:
-
-    \vspace{\baselineskip}
-
-    \begin{enumerate}
-        \item \(\top, \bot \in LM_n \)
-        \item \(\mathbb{P} \subseteq LM_n\)
-        \item \(\text{Se } \phi \in LM_n \text{, então } \circ \phi \in LM_n, \text{ sendo } \circ \in \{\Box_1, \dots, \Box_n, \Diamond_1, \dots, \Diamond_n, \neg\}\)
-        \item \(\text{Se } \phi, \psi \in LM_n \text{, então } \phi \circ \psi \in LM_n, \text{ sendo } \circ \in \{\land, \lor, \to\}\)
-    \end{enumerate}
+    \begin{itemize}
+        \item Algoritmos usados para buscar todos os vértices de um grafo
+        \item Um vértice é dito descoberto quando ele é visitado pela busca
+        \item Os vértices são representados como $v = \langle L_v, \pi_v, C_v \rangle$
+        \item DFS
+        \begin{itemize}
+            \item [--] Sendo $v$ o vértice descoberto mais recentemente, uma busca é feita nas arestas partindo de $v$ por vértices não descobertos
+            \item [--] Quando um novo vértice é descoberto, a busca passa a ser realizada nesse vértice
+            \item [--] Quando um vértice sendo explorado não alcança diretamente nenhum vértice inexplorado, a busca é encerrada nesse vértice
+        \end{itemize}
+        \item BFS
+        \begin{itemize}
+            \item [--] Armazena os vértices recém descobertos em uma fila
+            \item [--] Para cada vértice $u$ diretamente alcançável a partir de $v$, $u$ é inserido no final da fila
+            \item [--] Após explorar cada aresta partindo de $v$, $v$ é removido da fila
+        \end{itemize}
+    \end{itemize}
 
     % \vspace{\baselineskip}
 

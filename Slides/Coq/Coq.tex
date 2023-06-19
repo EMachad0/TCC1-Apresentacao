@@ -1,8 +1,13 @@
 \begin{frame}{Coq}
     \begin{itemize}
-        \item Assistente de provas para lógica de alta ordem, capaz de descrever e raciocinar sobre objetos matemáticos~\cite{geuvers2009proof};
-        \item O Coq é baseado em teoria de tipos, devido a Correspondência de Curry-Howard é capaz de expressar sistemas lógicos sofisticados;
-        \item Coq tem uma grande quantidade de ferramentas de automação de provas, e também permite que seus usuários desenvolvam suas próprias ferramentas;
-        \item Essas características tornam Coq uma boa ferramenta para representar sistemas lógicos complexos e operar sobre eles.
+        \item Assistente de provas que usa o Cálculo de Construções Indutivas \cite{bertot2013interactive};
+        \item Dividido em quatro componentes:
+        \begin{itemize}
+            \item A linguagem de programação e especificação \textit{Gallina}, que implementa o Cálculo de Construções Indutivas.
+                  Esta linguagem garante que qualquer programa ou prova escrita nela sempre termine.
+            \item A linguagem de comandos \textit{vernacular}, que faz a interação com o assistente.
+            \item Um conjunto de táticas para realização das provas, que são traduzidas para termos em \textit{Gallina}.
+            \item A linguagem \Ltac\ para implementar novas táticas e automatizar provas.
+        \end{itemize}
     \end{itemize}
 \end{frame}

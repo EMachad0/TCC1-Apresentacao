@@ -12,6 +12,7 @@
 \usepackage{bussproofs}
 \usepackage{multirow}
 \usepackage{changepage}
+
 \usepackage{svg}
 \setsvg{inkscapeexe=inkscape}
 \setsvg{inkscapeopt=-z -D}
@@ -19,6 +20,8 @@
 \newcommand{\uglyphi}{\phi} % mantendo o \phi velho
 \renewcommand \phi{\varphi}
 \let \emptyset \varnothing
+
+\newcommand{\Ltac}{$\mathcal{L}$\unskip tac}
 
 \graphicspath{{Figuras/}}
 \setbeamertemplate{frametitle continuation}{}
@@ -47,7 +50,8 @@
 
 \date{\today}
 
-\titlegraphic{\includegraphics[scale=.15]{Logo-Função.png}}
+\titlegraphic{Apoio:\\\includegraphics[scale=.15,keepaspectratio]{Logo-CNPq.png}}
+\logo{\includegraphics[scale=.05,keepaspectratio]{Logo-Função.png}}
 
 \begin{document}
 
@@ -78,6 +82,8 @@
     \include{Slides/TeoriaGrafos/Definicoes2}
     \include{Slides/TeoriaGrafos/Imagem2}
     \include{Slides/TeoriaGrafos/Caminhos}
+    \include{Slides/TeoriaGrafos/MatrizAdj}
+    \include{Slides/TeoriaGrafos/ListaAdj}
 
     \section[]{Algoritmos}
     \include{Slides/Algoritmos/DfsBfs}
@@ -85,6 +91,7 @@
     \include{Slides/Algoritmos/AStar}
 
     \section[]{Coq}
+    \include{Slides/Coq/AssistentesProvas}
     \include{Slides/Coq/Coq}
     \include{Slides/Coq/MathComp}
 
