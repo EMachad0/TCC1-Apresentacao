@@ -1,0 +1,120 @@
+\begin{frame}{Framework Proposto}
+    Framework
+    \begin{itemize}
+        \item[] de código aberto
+        \item[] que incorpora componentes comuns a algoritmos de escalonamento
+        \item[] focado em alto desempenho.
+    \end{itemize}
+\end{frame}
+
+% talvez remover esse slide
+\begin{frame}{Cenário de execução}
+    \begin{figure}
+        \centering
+        \includegraphics[width=0.5\textwidth]{Figuras/framework_usage.png}
+    \end{figure}
+\end{frame}
+
+\begin{frame}{Algoritmos}
+    \begin{table}[ht]
+        \centering
+        \scriptsize
+        \begin{tabular}{|c|c|c|c|}
+            \hline
+            \textbf{Algoritmo} & \textbf{Categoria} & \textbf{Complexidade} & \textbf{CPU/GPU} \\
+            \hline
+            Busca Binária & Busca & $O(\log n)$ & CPU \\
+            \hline
+            Merge Sort & Ordenação & $O(n \log n)$ & CPU \\
+            \hline
+            Topological Sort & Ordenação & $O(V + E)$ & CPU \\
+            \hline
+            Radix Sort & Ordenação & $O(nw)$ & GPU \\
+            \hline
+            K-means & Agrupamento & $O(nkdi)$ & GPU \\
+            \hline
+            DBSCAN & Agrupamento & $O(n^2)$ & GPU \\
+            \hline
+            Hierarchical Clustering & Agrupamento & $O(n^3)$ & CPU \\
+            \hline
+            Markov Clustering & Agrupamento & $O(n^3)$ & GPU \\
+            \hline
+            PageRank & Ranqueamento & $O(n + m)$ & GPU \\
+            \hline
+            Dijkstra & Menor Caminho & $O(E + V \log V)$ & CPU \\
+            \hline
+            Floyd-Warshall & Menor Caminho & $O(n^3)$ & CPU \\
+            \hline
+            A* & Menor Caminho & $O(E \log V)$ & CPU \\
+            \hline
+            Kruskal & MST & $O(E \log E)$ & CPU \\
+            \hline
+            Prim & MST & $O(E + V \log V)$ & CPU \\
+            \hline
+            Edmonds-Karp & Fluxo & $O(VE^2)$ & CPU \\
+            \hline
+            Min-Cost Max-Flow & Fluxo & $O(V^2E^2)$ & CPU \\
+            \hline
+            Dinic & Fluxo & $O(V^2E)$ & CPU \\
+            \hline
+            Gaussian Elimination & Otimização & $O(n^3)$ & GPU \\
+            \hline
+            Hungarian & Otimização & $O(n^3)$ & CPU \\
+            \hline
+            ADMM & Otimização & - & GPU \\
+            \hline
+        \end{tabular}
+        \caption{Algoritmos presentes no \textit{framework} proposto.}
+        \label{table:algorithms}
+    \end{table}
+\end{frame}
+
+\begin{frame}{Técnicas e Ferramentas}
+    \begin{columns}
+    \begin{column}{0.9\textwidth}
+    Rust:
+    \begin{itemize}
+        \item[--] Segurança de memória.
+        \item[--] \textit{Fearless Concurrency}.
+        \item[--] Linguagem moderna.
+        \item[--] Alto desempenho. 
+        \item[--] Rayon
+        \item[--] Petgraph 
+    \end{itemize}
+    C++:
+    \begin{itemize}
+        \item[--] Excelente suporte a GPUs
+        \item[--] OpenAcc
+        \item[--] Comunicação por meio de \textit{Foreign Function Interface}
+    \end{itemize}
+    \end{column}
+
+    \begin{column}{0.1\textwidth}
+        \begin{figure}
+            \includegraphics[width=\textwidth]{Figuras/Rust Logo.svg.png}
+            \vspace{10pt}
+            \includegraphics[width=\textwidth]{Figuras/C++ Logo.png}
+        \end{figure}
+    \end{column}
+    \end{columns}
+\end{frame}
+
+\begin{frame}{Cenário experimental}
+    Métricas:
+    \begin{itemize}
+        \item[--] Speedup, Eficiencia, Escalabilidade, Overhead, Utilização de recursos.
+    \end{itemize}
+
+    Base de dados aberta:
+    \begin{itemize}
+        \item[--] Dados reais e sintéticos.
+        \item[--] Grafos de diversos tamanhos e formatos.
+        \item[--] \textit{Politecnico di Milano}.
+    \end{itemize}
+
+    Infraestrutura:
+    \begin{itemize}
+        \item[--] 2 CPUs Intel Xeon Silver 2.2GHz.
+        \item[--] NVIDIA RTX 3090 24GB.
+    \end{itemize}
+\end{frame}

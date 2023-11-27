@@ -37,21 +37,18 @@
 \renewcommand{\figurename}{Figura}
 \renewcommand{\tablename}{Tabela}
 \sloppy
-\title[]{Formalização e Prova de algoritmos de menor caminho usando Coq}
+\title[]{Usando algoritmos determinísticos paralelos para escalonar tarefas em Edge-Cloud Continuum}
 
-\author[João Vitor Fr\"ohlich]{
-    João Vitor Fr\"ohlich\\\smallskip
+\author[Eliton Machado da Silva]{
+    Eliton Machado da Silva\\\smallskip
     {\scriptsize Universidade do Estado de Santa Catarina \\\smallskip
     \vspace{-2mm}
-    \texttt{joaovitorfrohlich@gmail.com}\\\medskip
-    {Orientadora: Dra Karina Girardi Roggia}\\
+    \texttt{eliton.mds@edu.udesc.br}\\\medskip
+    {Orientador: Dr. Guilherme Piêgas Koslovski}\\
     }
 }
 
 \date{\today}
-
-\titlegraphic{Apoio:\\\includegraphics[scale=.15,keepaspectratio]{Logo-CNPq.png}}
-\logo{\includegraphics[scale=.05,keepaspectratio]{Logo-Função.png}}
 
 \begin{document}
 
@@ -64,52 +61,35 @@
     \end{frame}
 
     \section[]{Introdução}
-    \include{Slides/Introducao/Introducao1}
-    % \include{Slides/Introducao/Introducao2}
-    % \include{Slides/Introducao/Introducao3}
+    \include{Slides/Introducao/Introducao}
+    \include{Slides/Introducao/Escalonamento}
 
     \section[]{Objetivos}
-    \include{Slides/Objetivos/ObjetivoGeral}
-    \include{Slides/Objetivos/ObjetivosEspecificos}
+    \include{Slides/Objetivos/Objetivos}
 
-    % \section[]{Trabalhos Relacionados}
-    % \include{Slides/TrabalhosRelacionados/TrabalhosRelacionados}
+    \section[]{Modelagem do problema}
+    \include{Slides/Modelagem/modelagem}
 
-    \section[]{Teoria de Grafos}
-    \include{Slides/TeoriaGrafos/Definicoes1}
-    \include{Slides/TeoriaGrafos/Exemplo1}
-    \include{Slides/TeoriaGrafos/Imagem1}
-    \include{Slides/TeoriaGrafos/Definicoes2}
-    \include{Slides/TeoriaGrafos/Imagem2}
-    \include{Slides/TeoriaGrafos/Caminhos}
-    \include{Slides/TeoriaGrafos/MatrizAdj}
-    \include{Slides/TeoriaGrafos/ListaAdj}
+    \section[]{Algoritmos determinísticos}
+    \include{Slides/AlgoritmosDeterministicos/deterministicos}
 
-    \section[]{Algoritmos}
-    \include{Slides/Algoritmos/DfsBfs}
-    \include{Slides/Algoritmos/Dijkstra}
-    \include{Slides/Algoritmos/AStar}
+    \section[]{Arquiteturas Paralelas}
+    \include{Slides/ArquiteturasParalelas/paralelas}
 
-    \section[]{Coq}
-    \include{Slides/Coq/AssistentesProvas}
-    \include{Slides/Coq/Coq}
-    \include{Slides/Coq/MathComp}
+    \section[]{Trabalhos Relacionados}
+    \include{Slides/TrabalhosRelacionados/TrabalhosRelacionados}
 
-    \section[]{Implementação}
-    \include{Slides/Implementacao/Implementacao1}
-    \include{Slides/Implementacao/Implementacao2}
-    \include{Slides/Implementacao/Implementacao3}
-    \include{Slides/Implementacao/Implementacao4}
-    \include{Slides/Implementacao/Implementacao5}
+    \section[]{Framework Proposto}
+    \include{Slides/Proposta/proposta}
+    \include{Slides/Proposta/testes}
 
     \section[]{Conclusões Parciais}
-    \include{Slides/Conclusoes/ConclusoesParciais}
-    \include{Slides/Conclusoes/Cronograma1}
-    \include{Slides/Conclusoes/Cronograma2}
+    \include{Slides/Conclusoes/Conclusao}
+    \include{Slides/Conclusoes/Cronograma}
 
-    \section[]{Referências}
-    \begin{frame}[allowframebreaks]{Referências}
-        \bibliography{referencias}
-    \end{frame}
+    % \section[]{Referências}
+    % \begin{frame}[allowframebreaks]{Referências}
+    %     \bibliography{referencias}
+    % \end{frame}
 
 \end{document}
