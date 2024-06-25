@@ -1,4 +1,6 @@
 \begin{frame}{Proposta}
+    Desenvolver um framework baseado em arquiteturas paralelas para escalonamento de tarefas em Edge-Cloud Continuum (ECC).
+    \vspace{1em}
     \begin{enumerate}
         \item Trabalhos relacionados.
         \item Algoritmos.
@@ -89,7 +91,7 @@
             Hungarian & Otimização & $O(n^3)$ & CPU \\
             \hline
         \end{tabular}
-        \caption{Algoritmos presentes no \textit{framework} proposto.}
+        \caption{Algoritmos candidatos a serem implementados no \textit{framework}.}
         \label{table:algorithms}
     \end{table}
 \end{frame}
@@ -157,26 +159,199 @@
     \end{columns}
 \end{frame}
 
-\begin{frame}{Cenário experimental}
-    Métricas:
+\begin{frame}{Código Exemplo}
+    \begin{figure}
+        \centering
+        \includegraphics[width=\textwidth]{Figuras/TCC Compilacao.png}
+    \end{figure}
+\end{frame}
+
+\begin{frame}{Algoritmos}
+    \begin{enumerate}
+        \item Prefix Sum.
+        \item Busca Binária.
+        \item Radix Sort.
+        \item Floyd Warshall.
+        \item Gauss Elimination.
+    \end{enumerate}
+\end{frame}
+
+\begin{frame}{Prefix Sum}
+    \begin{figure}
+        \centering
+        \includegraphics[width=\textwidth]{Figuras/PrefixSum.png}
+    \end{figure}
+\end{frame}
+
+\begin{frame}{Prefix Sum}
+    Se resume em gerar uma nova lista a partir de uma lista de entrada, na qual um elemento na posição $i$ é a soma dos elementos das posições $0$ até $i$ da lista original.
+    \vspace{1em}
     \begin{itemize}
-        \item[--] Speedup, Eficiência, Escalabilidade, Overhead.
+        \item \textbf{Serial:} Algoritmo Trivial $O(n)$.
+        \item \textbf{CPU:} Algoritmo de dois passos $O(n)$.
+        \item \textbf{GPU:} Algoritmo de \textit{Blelloch} $O(n \log n)$.
     \end{itemize}
+\end{frame}
 
+\begin{frame}{Prefix Sum Paralelo}
+    \begin{figure}
+        \centering
+        \includegraphics[width=0.8\textwidth]{Figuras/Hillis-Steele Prefix Sum.svg.png}
+    \end{figure}
+\end{frame}
+
+\begin{frame}{Cenário experimental}
+    Baterias de testes:
+    \begin{itemize}
+        \item[--] Algoritmos testados em diferentes arquiteturas.
+        \item[--] 1 minuto de execução.
+        \item[--] 3 execuções para aquecimento de \textit{cache}.
+    \end{itemize} 
     \vspace{1em}
-
-    % Base de dados aberta:
-    % \begin{itemize}
-    %     \item[--] \textit{Politecnico di Milano}.
-    %     \item[--] Dados reais e sintéticos.
-    %     \item[--] Grafos de diversos tamanhos e formatos.
-    % \end{itemize}
-
+    Base de dados:
+    \begin{itemize}
+        \item[--] Mesma entrada para o mesmo algoritmo.
+        \item[--] Carga de trabalho diferente para cada algoritmo.
+        \item[--] Entradas geradas aleatoriamente.
+    \end{itemize}
     \vspace{1em}
-
     Infraestrutura local do LabP2D:
     \begin{itemize}
         \item[--] 2 CPUs Intel Xeon Silver 2.2GHz.
         \item[--] NVIDIA RTX 3090 24GB.
     \end{itemize}
+\end{frame}
+
+\begin{frame}{Métricas de Avaliação}
+    Métricas:
+    \begin{itemize}
+        \item[--] Speedup, Eficiência, Escalabilidade, Overhead.
+    \end{itemize}
+    \vspace{1em}
+    Estatísticas coletadas:
+    \begin{itemize}
+        \item[--] Média, Mediana, $R^2$, Desvio Padrão, \textit{MAD} e \textit{Slope}.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Bateria de Testes}
+    5 algoritmos testados.
+    \begin{itemize}
+        \item 5 Implementações seriais.
+        \item 5 Implementações paralelas em CPU.
+        \item 3 Implementações paralelas em GPU.
+    \end{itemize}
+    13 Implementações no total.
+    \vspace{1em}
+    \begin{itemize}
+        \item 6 métricas coletadas.
+        \item 11 gráficos por Implementação.
+        \item 26 gráficos presentes no trabalho.
+        \item Os demais estão presentes no \textit{GitHub}.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Gráfico de Densidade -- Prefix Sum CPU}
+    \begin{figure}
+        \centering
+        \resizebox{\textwidth}{!}{
+            \includesvg{Figuras/prefix-sum_cpu_pdf.svg}
+        }
+    \end{figure}
+\end{frame}
+
+\begin{frame}{Gráfico de Regressão -- Prefix Sum CPU}
+    \begin{figure}
+        \centering
+        \resizebox{\textwidth}{!}{
+            \includesvg{Figuras/prefix-sum_cpu_times.svg}
+        }
+    \end{figure}
+\end{frame}
+
+\begin{frame}{Gráfico de Regressão -- Prefix Sum CPU}
+    \begin{table}[h!]
+        \centering
+        \resizebox{\linewidth}{!}{
+        \begin{tabular}{|c|c|c|}
+        \hline
+        \textbf{Algoritmo} & \textbf{Arquitetura} & \textbf{Média de Tempo de Execução} \\
+        \hline
+        \textbf{Binary} & Serial & 503,32 ms \\
+        \textbf{Search} & CPU & 24,66 ms \\
+        \hline
+        \textbf{Floyd} & Serial & 2,22 s \\
+        \textbf{Warshall} & CPU & 692,05 ms \\
+         & GPU & 24,77 ms \\
+        \hline
+        \textbf{Gaussian} & Serial & 2,55 s \\
+        \textbf{Elimination} & CPU & 269,07 ms \\
+         & GPU & 1,64 s \\
+        \hline
+        \textbf{Prefix} & Serial & 1,26 ms \\
+        \textbf{Sum} & CPU & 421,35 µs \\
+         & GPU & 63,93 ms \\
+        \hline
+        \textbf{Radix} & Serial & 3,50 s \\
+        \textbf{Sort} & CPU & 1,65 s \\
+        \hline
+        \end{tabular}
+        }
+    \end{table}
+\end{frame}
+
+\begin{frame}{Gráfico de Regressão -- Prefix Sum CPU}
+    \begin{table}[h!]
+        \centering
+        \resizebox{\linewidth}{!}{
+        \begin{tabular}{|c|c|c|c|c|c|}
+        \hline
+        \textbf{Algoritmo} & \textbf{Arquitetura} & \textbf{Tempo} & \textbf{Tempo} & \textbf{Speedup} & \textbf{Eficiência} \\
+        & & \textbf{Serial} & \textbf{Paralelo} & & \\
+        \hline
+        \textbf{Binary Search} & CPU & 503,28 ms & 24,66 ms & 20,41 & 42,52\% \\
+        \hline
+        \textbf{Floyd} & CPU & 2,22 s & 692,05 ms & 3,21 & 6,68\% \\
+        \textbf{Warshall} & GPU & 2,22 s & 24,77 ms & 89,64 & 0,85\% \\
+        \hline
+        \textbf{Gaussian} & CPU & 2,55 s & 269,07 ms & 9,47 & 19,73\% \\
+        \textbf{Elimination} & GPU & 2,55 s & 1,64 s & 1,55 & 0,01\% \\
+        \hline
+        \textbf{Prefix Sum} & CPU & 1,26 ms & 421,35 µs & 2,99 & 6,23\% \\
+         & GPU & 1,26 ms & 63,93 ms & 0,02 & 0,00\% \\
+        \hline
+        \textbf{Radix Sort} & CPU & 3,50 s & 1,65 s & 2,12 & 4,41\% \\
+        \hline
+        \end{tabular}
+        }
+    \end{table}
+\end{frame}
+
+\begin{frame}{Gráfico de Regressão -- Prefix Sum CPU}
+
+    \begin{table}[h!]
+        \centering
+        \resizebox{\linewidth}{!}{
+        \begin{tabular}{|c|c|c|c|c|}
+        \hline
+        & & \textbf{Tempo} & \textbf{Tempo} & \\
+        \textbf{Algoritmo} & \textbf{Arquitetura} & \textbf{Paralelo} & \textbf{Paralelo} & \textbf{Overhead} \\
+        & & \textbf{Ideal} & \textbf{Real} & \\
+        \hline
+        \textbf{Binary Search} & CPU & 10,48 ms & 24,66 ms & 14,18 ms \\
+        \hline
+        \textbf{Floyd} & CPU & 46,25 ms & 692,05 ms & 645,80 ms \\
+        \textbf{Warshall} & GPU & 211,85 µs & 24,77 ms & 24,56 ms \\
+        \hline
+        \textbf{Gaussian} & CPU & 53,13 ms & 269,07 ms & 215,94 ms \\
+        \textbf{Elimination} & GPU & 243,16 µs & 1,64 s & 1,64 s \\
+        \hline
+        \textbf{Prefix Sum} & CPU & 26,25 µs & 421,35 µs & 395,10 µs \\
+         & GPU & 120,04 ns & 63,93 ms & 63,93 ms \\
+        \hline
+        \textbf{Radix Sort} & CPU & 72,92 ms & 1,65 s & 1,57 s \\
+        \hline
+        \end{tabular}
+        }
+    \end{table}
 \end{frame}
