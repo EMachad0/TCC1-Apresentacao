@@ -1,18 +1,18 @@
-\begin{frame}{Proposta}
-    Desenvolver um framework baseado em arquiteturas paralelas para escalonamento de tarefas em Edge-Cloud Continuum (ECC).
-    \vspace{1em}
-    \begin{enumerate}
-        \item Trabalhos relacionados.
-        \item Algoritmos.
-        \begin{itemize}
-            \item Algoritmos Determinísticos.
-            \item Arquiteturas Paralelas.
-        \end{itemize}
-        \item Cenário de execução.
-        \item Técnicas e ferramentas.
-        \item Cenário de teste.
-    \end{enumerate}
-\end{frame}
+% \begin{frame}{Proposta}
+%     Desenvolver um framework baseado em arquiteturas paralelas para escalonamento de tarefas em Edge-Cloud Continuum (ECC).
+%     \vspace{1em}
+%     \begin{enumerate}
+%         \item Trabalhos relacionados.
+%         \item Algoritmos.
+%         \begin{itemize}
+%             \item Algoritmos Determinísticos.
+%             \item Arquiteturas Paralelas.
+%         \end{itemize}
+%         \item Cenário de execução.
+%         \item Técnicas e ferramentas.
+%         \item Cenário de teste.
+%     \end{enumerate}
+% \end{frame}
 
 \begin{frame}{Algoritmos Determinísticos}
     Algoritmos Determinísticos:
@@ -120,8 +120,8 @@
         \item[--] Segurança de memória.
         \item[--] Alto desempenho. 
         \item[--] \textit{Petgraph}.
-        \item[--] \textit{Fearless Concurrency}.
         \item[--] \textit{Rayon}.
+        \item[--] \textit{Fearless Concurrency}.
     \end{itemize}
     \end{column}
 
@@ -223,14 +223,14 @@
 \end{frame}
 
 \begin{frame}{Métricas de Avaliação}
-    Métricas:
-    \begin{itemize}
-        \item[--] Speedup, Eficiência, Escalabilidade, Overhead.
-    \end{itemize}
-    \vspace{1em}
     Estatísticas coletadas:
     \begin{itemize}
         \item[--] Média, Mediana, $R^2$, Desvio Padrão, \textit{MAD} e \textit{Slope}.
+    \end{itemize}
+    \vspace{1em}
+    Métricas:
+    \begin{itemize}
+        \item[--] Speedup, Eficiência, Escalabilidade, Overhead.
     \end{itemize}
 \end{frame}
 
@@ -269,7 +269,7 @@
     \end{figure}
 \end{frame}
 
-\begin{frame}{Gráfico de Regressão -- Prefix Sum CPU}
+\begin{frame}{Resumo dos Tempos de Execução}
     \begin{table}[h!]
         \centering
         \resizebox{\linewidth}{!}{
@@ -300,35 +300,34 @@
     \end{table}
 \end{frame}
 
-\begin{frame}{Gráfico de Regressão -- Prefix Sum CPU}
+\begin{frame}{Resultados Speedup}
     \begin{table}[h!]
         \centering
         \resizebox{\linewidth}{!}{
-        \begin{tabular}{|c|c|c|c|c|c|}
+        \begin{tabular}{|c|c|c|c|c|}
         \hline
-        \textbf{Algoritmo} & \textbf{Arquitetura} & \textbf{Tempo} & \textbf{Tempo} & \textbf{Speedup} & \textbf{Eficiência} \\
-        & & \textbf{Serial} & \textbf{Paralelo} & & \\
+        \textbf{Algoritmo} & \textbf{Arquitetura} & \textbf{Tempo} & \textbf{Tempo} & \textbf{Speedup} \\
+        & & \textbf{Serial} & \textbf{Paralelo} & \\
         \hline
-        \textbf{Binary Search} & CPU & 503,28 ms & 24,66 ms & 20,41 & 42,52\% \\
+        \textbf{Binary Search} & CPU & 503,28 ms & 24,66 ms & 20,41 \\
         \hline
-        \textbf{Floyd} & CPU & 2,22 s & 692,05 ms & 3,21 & 6,68\% \\
-        \textbf{Warshall} & GPU & 2,22 s & 24,77 ms & 89,64 & 0,85\% \\
+        \textbf{Floyd} & CPU & 2,22 s & 692,05 ms & 3,21 \\
+        \textbf{Warshall} & GPU & 2,22 s & 24,77 ms & 89,64 \\
         \hline
-        \textbf{Gaussian} & CPU & 2,55 s & 269,07 ms & 9,47 & 19,73\% \\
-        \textbf{Elimination} & GPU & 2,55 s & 1,64 s & 1,55 & 0,01\% \\
+        \textbf{Gaussian} & CPU & 2,55 s & 269,07 ms & 9,47 \\
+        \textbf{Elimination} & GPU & 2,55 s & 1,64 s & 1,55 \\
         \hline
-        \textbf{Prefix Sum} & CPU & 1,26 ms & 421,35 µs & 2,99 & 6,23\% \\
-         & GPU & 1,26 ms & 63,93 ms & 0,02 & 0,00\% \\
+        \textbf{Prefix Sum} & CPU & 1,26 ms & 421,35 µs & 2,99 \\
+         & GPU & 1,26 ms & 63,93 ms & 0,02 \\
         \hline
-        \textbf{Radix Sort} & CPU & 3,50 s & 1,65 s & 2,12 & 4,41\% \\
+        \textbf{Radix Sort} & CPU & 3,50 s & 1,65 s & 2,12 \\
         \hline
         \end{tabular}
         }
     \end{table}
 \end{frame}
 
-\begin{frame}{Gráfico de Regressão -- Prefix Sum CPU}
-
+\begin{frame}{Resultados Overhead}
     \begin{table}[h!]
         \centering
         \resizebox{\linewidth}{!}{
